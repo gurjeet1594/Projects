@@ -1,0 +1,49 @@
+<html>
+	<input type = "text" id = "T1" value"0"> 
+	<input type ="Button" value= "increment" onmousemove="increment();nbs.style.color='red';">
+	<input type ="Button" value= "decrement" onmousemove="decrement();nbs.style.color='blue';">
+	
+	
+<Body onmousemove = "doSomething()">
+
+	<span style="Position:absolute;top:0;"id="nbs" >
+		Nationwide</span>
+		<br>
+		
+			<script>
+				var font = 10;
+				function increment()
+				{
+				var Ref1=window.document.getElementById("T1");
+				Ref1.value=parseInt(Ref1.value)+1
+				
+				} 
+					
+				function decrement()
+				{
+				var Ref1=window.document.getElementById("T1");
+				Ref1.value=parseInt(Ref1.value)-1
+				}
+					
+				function doSomething()
+				{	
+					var X = window.event.clientX;
+					var Y = window.event.clientY;
+					var Ref1=window.document.getElementById("nbs");
+					Ref1.style.top = Y;
+					Ref1.style.left = X;
+					
+					if(window.event.ctrlKey)
+					{
+					font++;
+					}
+					if(window.event.altKey)
+					{
+					font--;
+					}
+					Ref1.style.fontSize = font;
+				}
+				
+				
+				
+			</script>

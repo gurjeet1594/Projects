@@ -1,0 +1,38 @@
+<FORM action="Process.html" method="POST" onsubmit="return checkValues()">
+    RegNo:<input type="text" id="RegNo" name="Regno1">
+    Name:<input type="text" id="N" name="sname">
+    <input type="submit">
+</FORM>
+<script>
+    function checkValues()
+    {
+        var ref1=document.getElementById("RegNo");
+        var ref2=document.getElementById("N");
+       
+        
+
+        if(ref1.value=="")
+        {
+            alert("Missing value");
+            return false;    
+        }
+        else {
+            if(!(parseInt(ref1.value)>=100 & parseInt(ref1.value)<=200)){
+               alert("Number should be between 100-200");
+                return false;
+            }
+        }
+        
+        if(ref2.values=="")
+        {
+            alert("Missing value");
+            return false;    
+        }
+        else {
+            if(isNaN != ref1.value){
+               alert("Name should be alphabets only");
+                return false;
+            }
+        }
+    }
+</script>

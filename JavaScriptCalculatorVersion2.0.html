@@ -1,0 +1,49 @@
+<HTML>
+No 1: <input type = "text" id = "T1"><br>
+No 2: <input type = "text" id = "T2"><br>
+<input type = "button" id = "B1" value = "+" onclick = "Addition()"><br>
+<input type = "button" id = "B2" value = "-" onclick = "Subtraction()"><br>
+<input type = "button" id = "B3" value = "*" onclick = "Multiplication()"><br>
+<input type = "button" id = "B4" value = "/" onclick = "Division()"><br>
+Result: <input type = "text" id = "T3">
+
+<script>
+var ref1,ref2,ref3;
+var No1, No2;
+
+function getValues()
+{
+	ref1=window.document.getElementById("T1");
+	ref2=window.document.getElementById("T2");
+	ref3=window.document.getElementById("T3");
+
+	if(ref1 == ""){
+		window.alert("First TextBox is empty");
+		}
+	if(ref2 == ""){
+		window.alert("Second TextBox is empty");
+	}
+}
+
+function Addition(){
+	getValues();
+	ref3.value=No1+No2;
+	
+}
+
+function Subtraction(){
+	getValues();
+	ref3.value=No1-No2;
+}
+
+function Multiplication(){
+	getValues();
+	ref3.value=No1*No2;
+}
+
+function Division(){
+	getValues();
+	ref3.value=No1/No2;
+}
+</script>
+</HTML>

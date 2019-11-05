@@ -1,0 +1,17 @@
+package mySQL;
+
+import java.sql.*;
+class Database {
+ public static void main (String [] args) {
+	 try{
+		 Class.forName("com.mysql.cj.jdbc.Driver");
+		 Connection c = DriverManager.getConnection("jdbc:mysql://localhost/nationwide","root","root");
+		 Statement s = c.createStatement();
+		 s.executeUpdate("insert into school values(24,'Ginny',100)");
+	 	}
+	 catch(Exception X){
+		 System.out.println(X);
+	 	}
+	
+ }
+}

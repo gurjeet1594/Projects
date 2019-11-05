@@ -1,0 +1,30 @@
+class QA3 {
+public static void main(String []args) {
+	QA3 z = new QA3();
+	z.evenlySpaced(4,6,2);
+}
+
+public void  evenlySpaced(int a, int b, int c) {
+		int x=0,y=0,z=0;
+		x=(a-b);
+		y=(b-c);
+		z=(a-c);
+		
+		if(a==b&&b==c&&c==b&&c==a) {
+			System.out.println("true");
+		}
+		
+		if(a==b||b==c||c==b||a==c) {
+			System.out.println("true");
+		}
+		
+		if(x==y||y==z||x==z) {
+			System.out.println("true");
+		}
+		else {
+		System.out.println("false");
+		}
+		}
+ }
+
+ 

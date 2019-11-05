@@ -1,0 +1,35 @@
+<Form>
+<input><input><input><input><input><input><input><input><input><input>
+<input><input><input><input><input><input><input><input><input><input>
+<input><input><input><input><input><input><input><input><input><input>
+</Form>
+<Form>
+<input>
+<input>
+<input type ="Button" onclick = "Check()">
+
+<script>
+function Check(){
+var empty = 0;
+for(var i = 0; i<window.dcument.forms[0].elements.length;i++){
+if(window.document.forms[0].elements[i].value==""){
+empty++;
+}
+}
+window.alert("elements are empty");
+}
+
+function Check2(){
+var empty = 0;
+for(var i = 0; i<window.dcument.forms[0].elements.length;i++){
+if(window.document.forms[0].elements[i].value==""){
+empty++;
+}
+}
+window.alert("elements are empty");
+}
+//function checkallforms()
+//var empty = 0;
+//for(var f = 0;f<windows.document.forms.length; f++)
+</script>
+</Form>

@@ -1,0 +1,34 @@
+<html>
+	
+	<input type ="Button" value= "Red" onmousemove="Red()" id = "R">
+	
+	
+<Body onmousemove = "doSomething()">
+
+
+		<br>
+		
+			<script>
+			
+				function Red()
+				{
+				var Ref1=window.document.getElementById("R");
+				Ref1.value=parseInt(Ref1.value)+1
+				}
+					
+				function decrement()
+				{
+				var Ref1=window.document.getElementById("T1");
+				Ref1.value=parseInt(Ref1.value)-1
+				}
+					
+				function doSomething()
+				{
+					var X = window.event.clientX;
+					var Y = window.event.clientY;
+					var Ref1=window.document.getElementById("nbs");
+					Ref1.style.top = Y;
+					Ref1.style.left = X;
+				}
+				
+			</script>

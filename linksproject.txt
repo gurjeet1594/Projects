@@ -1,0 +1,9 @@
+<img src= "2 states.jpg" alt="Novel" style="width:700px;height:1000px;" align="middle">
+
+<img src= "Half girlfriend.jpg" alt="Novel" style="width:700px;height:1000px;"align="middle">
+
+<img src= "HH.jpg" alt="Novel" style="width:700px;height:1000px;"align="middle">
+
+<img src= "Swordsofkings.jpg" alt="Novel" style="width:700px;height:1000px"align="middle">
+
+<img src= "shining.jpg" alt="Novel" style="width:700px;height:1000px"align="middle">

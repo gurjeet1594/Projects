@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FlixReview</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <style>
+    iframe{
+ width: 100vw;
+ height: calc(700vwx394*1.50);
+}
+   .fa {
+         font-size: 100px;
+         }
+         .checked {
+         color: orange;
+         }
+  body {
+    position: relative; 
+  }
+  .affix {
+    top:0;
+    width: 100%;
+    z-index: 9999 !important;
+  }
+  .navbar {
+    margin-bottom: 0px;
+  }
+
+  .video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+  .affix ~ .container-fluid {
+   position: relative;
+   top: 50px;
+   width: 100%;
+    height: 0;
+  }
+  table  {
+         font-family: arial, sans-serif;
+         border-collapse: collapse;
+         width: 100%;
+         color:#fff
+         
+         }
+         td,
+         th {
+         border: 1px solid #000000;
+         text-align: left;
+         padding: 8px;
+         }
+         tr:nth-child(even) {
+         background-color: #0a0a0a;
+         }
+    button{
+      color: Black;
+
+    }
+  #section1 {padding-top:25px;height:200px;color: #fff; background-color: #761414;}
+  #section2 {padding-top:25px;height:200px;color: #fff; background-color: #37404f;}
+  /* #section3 {padding-top:25px;height:200px;color: #fff; background-color: #395b67;}
+  #section4 {padding-top:25px;height:200px;color: #fff; background-color: #484a4e;} */
+  #section3 {padding-top:25px;height:1000px;color: #fff; background-color: #666b75;}
+  </style>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+<div class="container-fluid" style="background-color:rgb(0, 0, 0);color:rgb(2, 2, 2);height:300px;">
+    <iframe class="video" width=1500px height="300px" align="center" src="https://www.youtube.com/embed/t433PEQGErc" frameborder="0"
+    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </iframe>
+</div>
+
+<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Flix Review</a>
+    </div>
+    <div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="#section1">Story Line</a></li>
+          <li><a href="#section2">Add Reviews</a></li>
+          <li><a href="#section3">Reviews</a></li>
+            </ul>
+      </div>
+    </div>
+  </div>
+</nav>    
+
+<div id="section1" class="container-fluid">
+    <h1>Story Line</h1>
+    <p>Forever alone in a crowd, failed comedian Arthur Fleck seeks connection as he walks the streets of Gotham City. Arthur wears two masks -- the one he paints for his day job as a clown, and the guise he projects in a futile attempt to feel like he's part of the world around him. Isolated, bullied and disregarded by society, Fleck begins a slow descent into madness as he transforms into the criminal mastermind known as the Joker.                      </p>
+  </div>
+
+
+</div>
+<div id="section2" class="container-fluid">
+    <h1>Add Reviews</h1>
+    <form>
+        Name: &nbsp; <input id="name" type="text" name="name" value="" style="margin-left:0%;margin-right:auto;color:#000000" size="25">&nbsp;&nbsp;
+        Review:  &nbsp;<input id="review" type="text" name="review" value="" style="margin-left:0%;margin-right:auto;color:#000000" size="25">&nbsp;&nbsp;
+        
+        Rating: &nbsp;<select id="rating"  style="margin-left:0%;margin-right:auto;width:70px;height:27px;color:#000000">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          &nbsp;&nbsp;
+     <button size ="10" onclick="house()" >Submit</button>
+   </form>
+   <script>
+      var name,review,rating;
+      
+      function getValues() {
+      
+        this.name = document.getElementById("name").value;
+        this.review = document.getElementById("review").value;
+        this.rating = document.getElementById("rating").value;
+        
+      }
+      function clearValues() {
+      
+        document.getElementById("name").value = "";
+        document.getElementById("review").value = "";
+        document.getElementById("rating").value = "";
+      
+      }
+      function house() {
+        getValues();
+        
+      
+          console.log(this.name,this.review,this.rating);
+          const Http = new XMLHttpRequest();
+          const url='http://'+location.hostname+':8081/save3';
+          Http.open("POST",url,true);
+          Http.setRequestHeader("Content-Type", "application/json");
+          const fd = {
+            
+            'name': this.name,
+            'comment': this.review,
+            'rating': this.rating
+                      };
+                     
+          Http.onreadystatechange = function(e) {
+            if (Http.readyState == 4) {
+               newid = JSON.parse(Http.responseText);
+  
+              
+               var ref = document.getElementById("myTable");
+                  var row = ref.insertRow();
+                   var cell0 = row.insertCell(0);
+                   var cell1 = row.insertCell(1);
+                   var cell2 = row.insertCell(2);
+                   var cell3 = row.insertCell(3);
+                   
+                   cell0.innerHTML = newid;
+                   cell1.innerHTML = this.name;
+                   cell2.innerHTML = this.comment;
+                   cell3.innerHTML = this.rating;
+                  
+                   ref.appendChild(row);
+                   ref.appendChild(cell0)
+                   ref.appendChild(cell1);
+                   ref.appendChild(cell2);
+                   ref.appendChild(cell3);
+                   
+                   document.body.appendChild(ref);
+                  
+            
+          }}
+        
+          //alert(JSON.stringify(fd));
+          Http.send(JSON.stringify(fd));
+         
+        }
+       
+  </script>
+ </div>
+
+  <script>
+    function deletejoker(id){
+           //this.id = document.getElementById("id").value;
+            //console.log(this.id);
+            const Http = new XMLHttpRequest();
+            const url='http://'+location.hostname+':8081/deleteRecord/' + id;
+            Http.open("DELETE", url,true);
+            Http.setRequestHeader("Content-Type", "application/json");
+            const fd = {
+              'id': this.id,
+            }
+            Http.onreadystatechange = function(ev) {
+              console.log("hello");
+            }	  
+           //  alert(JSON.stringify(fd)) 
+            Http.send(JSON.stringify(fd));
+            window.location.reload();
+            }
+
+
+           function update2(id){
+           var txt;
+           var z1 = prompt("Name","");
+           var z2 = prompt("Review","");
+           var z3 =prompt("Rating from 1-5","");
+           console.log(this.id,z1,z2,z3);
+           const Http = new XMLHttpRequest();
+           const url='http://'+location.hostname+':8081/updateRecord/'+id+'/'+ z1+'/'+z2+'/'+z3;
+           console.log("2",this.id,z1,z2,z3);
+           Http.open("POST", url,true);
+           Http.setRequestHeader("Content-Type", "application/json");
+           const fd = {
+             'id': this.id,
+             'name': z1,
+             'comment': z2,
+             'rating':z3,
+           }
+           Http.onreadystatechange = function(ev) {
+             console.log(this.id,z1,z2,z3);
+           }	  
+          //  alert(JSON.stringify(fd)) 
+           Http.send(JSON.stringify(fd));
+           window.location.reload();
+           }
+           
+   
+</script>
+<div id="section3" class="container-fluid">
+    <h1>Reviews</h1>
+    <button size ="10" onclick="getComment()">Show Comments</button>
+    <script>
+        function getComment(){
+        
+          console.log("helloo");
+          const Http = new XMLHttpRequest();
+          const url='http://'+location.hostname+':8081/showall';
+          Http.open("GET", url);
+          Http.onreadystatechange = function(e){
+            console.log("testing");
+            //alert(Http.readyState);
+            if (Http.readyState==4){
+              data=JSON.parse(Http.responseText);
+            //  alert(data);
+            
+                    data.forEach(function(item){
+                      var ref = document.getElementById("myTable");
+                      var row = ref.insertRow();
+                     var cell0 = row.insertCell(0);
+                     var cell1 = row.insertCell(1);
+                     var cell2 = row.insertCell(2);
+                     var cell3 = row.insertCell(3);
+                     var cell4= row.insertCell(4);
+                     var cell5= row.insertCell(5);
+                     
+                     
+                     var id = document.createElement("span");
+                     var name = document.createElement("span");
+                     var comment = document.createElement("span");
+                     var rating = document.createElement("span");
+                     //var deletebtn = document.createElement("button");
+                     
+                     cell0.innerHTML = item.id
+                     cell1.innerHTML = item.name;
+                     cell2.innerHTML = item.comment;
+                     cell3.innerHTML = item.rating;
+                     cell4.innerHTML = `<button class="glyphicon glyphicon-trash" onclick="deletejoker('${item.id}')"> </button>`;
+                     cell5.innerHTML = `<button class="glyphicon glyphicon-edit"onclick="update2('${item.id}')">  </buttom>`;
+
+                     ref.appendChild(row);
+                     ref.appendChild(cell0)
+                     ref.appendChild(cell1);
+                     ref.appendChild(cell2);
+                     ref.appendChild(cell3);
+                     ref.appendChild(cell4);
+                     ref.appendChild(cell5);
+                     
+
+                    });
+                }}
+                Http.send();
+                }
+                   
+  </script>
+  <br><br>
+  <table id="myTable">
+      <th>ID</th>
+       <th>Name</th>
+       <th> Comments</th>
+       <th> Rating</th>
+       <th> Delete</th>
+       <th> Update</th>
+       
+    </table>
+  </div>
+
+
+</body>
+</html>

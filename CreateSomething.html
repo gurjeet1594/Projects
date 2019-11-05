@@ -1,0 +1,23 @@
+<style>
+    style = "height:50px
+             width:50px
+            backgroud-color:red  "
+</style>
+<body onLoad = "createSomething()"></body>
+<script>
+function createSomething(){
+  var Time =window.setInterval(
+      function(){
+          var span=document.createElement("span");
+          var Left =parseInt(Math.random*2000);
+          var top =parseInt(Math.random*1000);
+         
+
+          span.style.position="absolute";
+          span.style.left=Left;
+          span.style.Top=top;
+          document.body.appendChild(span); 
+      },3000);
+    }
+    </script>
+    

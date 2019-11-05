@@ -1,0 +1,49 @@
+<HTML>
+No1: <input type = "text" id = "T1"><br>
+No2: <input type = "text" id = "T2"><br>
+<input type = "button" id = "B1" value = "+" onclick = "Addition()"><br>
+<input type = "button" id = "B2" value = "-" onclick = "Subtarction()"><br>
+<input type = "button" id = "B3" value = "*" onclick = "Multiplication()"><br>
+<input type = "button" id = "B4" value = "/" onclick = "Division()"><br>
+Result: <input type = "text" id = "T3">
+
+<script>
+function Addition(){
+var ref1=window.document.getElementById("T1");
+var ref2=window.document.getElementById("T2");
+var ref3=window.document.getElementById("T3");
+var No1 = parseInt(ref1.value);
+var No2 = parseInt(ref2.value);
+var Result = No1+No2;
+ref3.value=Result;
+}
+function Subtarction(){
+var ref1=window.document.getElementById("T1");
+var ref2=window.document.getElementById("T2");
+var ref3=window.document.getElementById("T3");
+var No1 = parseInt(ref1.value);
+var No2 = parseInt(ref2.value);
+var Result = No1-No2;
+ref3.value=Result;
+}
+
+function Multiplication(){
+var ref1=window.document.getElementById("T1");
+var ref2=window.document.getElementById("T2");
+var ref3=window.document.getElementById("T3");
+var No1 = parseInt(ref1.value);
+var No2 = parseInt(ref2.value);
+var Result = No1*No2;
+ref3.value=Result;
+}
+function Division(){
+var ref1=window.document.getElementById("T1");
+var ref2=window.document.getElementById("T2");
+var ref3=window.document.getElementById("T3");
+var No1 = parseInt(ref1.value);
+var No2 = parseInt(ref2.value);
+var Result = No1/No2;
+ref3.value=Result;
+}
+</script>
+</HTML>

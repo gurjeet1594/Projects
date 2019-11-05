@@ -1,0 +1,17 @@
+class Assesment1{
+public static void main (String[] args) {
+	Assesment1 X = new Assesment1();
+	X. multChar("HelloFriends");
+	
+}
+public void  multChar(String input) {
+		String word = "";
+		int i;
+		for (i = 0; i< input.length(); i++) {
+			word += input.substring(i, i+1);
+			word += input.substring(i, i+1);
+			word += input.substring(i, i+1);
+		}
+		System.out.println( word);
+	}
+}
